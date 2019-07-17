@@ -1,0 +1,110 @@
+
+<div class="sidebar">
+  <h2>Nuevo BeerSpot</h2>
+  <%= form_with(model: @beer_spot) do |form| %>
+      <div class="from-group">
+        <div class="field">
+          <%= form.text_field :name,placeholder: 'Nombre ', class:"form-control" %>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <%= link_to "#", id: "get_location" do %> 
+                <i class="fa fa-map-marker"> </i> 
+                <% end %>
+              </div>
+            </div>
+            
+            <%= form.text_field :address, id:"bs_address", placeholder: 'Dirección', class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="field">
+          
+          <%= form.text_area :post,placeholder: 'Descripción', class:"form-control" %>
+        </div>
+        <br>
+
+        <div class="field">
+          <%= form.file_field :images, multiple: true %>
+        </div>
+        <br>
+        <div class="field">
+            <%= form.number_field :qualification, max: 5 ,min:1 ,placeholder: 'Calificación' ,class:"form-control" %>
+        </div>
+
+      </div>
+      <br>
+      <div class="actions">
+      <%= form.submit %>
+      </div>
+  <% end %>
+<br>
+<div class="listBS">
+    <table class="table">
+    <h2>BeerSpots</h1>
+    <thead>
+    <tr>
+    <th>Nombre</th>
+
+    <th>Calificacion</th>
+
+    <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody id='beerspotsall'>
+    <% @beerspots.each do |beerspot| %>
+    <tr id="<%=beerspot.id%>">
+    <td><%= beerspot.name %></td>
+
+    <td style ="text-align: center"><%= beerspot.qualification %></td>
+
+    <td><%= link_to 'Info', beerspot %></td>
+
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+</div> 
+<%# termina div sidebar %>
+
+
+<div class="contenido">
+  <div id="imgBs"><img src="iconbs.png" alt="" class="menu-bar"></div>
+  
+  <div id="map" style='width: 100%; height: 100%;'>
+  
+</div>
+
+<script>
+  $('.menu-bar').on('click', function () {
+    $('.contenido').toggleClass('abrir');
+  });
+
+
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+        provider: {},
+        internal: { id: 'map', disableDefaultUI :true}
+  }, function () {    
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  
+  }) 
+  navigator.geolocation.getCurrentPosition(setPosition); 
+  var image = '/markerbs.png'
+  function setPosition(position) {
+  
+    handler.getMap().setCenter({lat:position.coords.latitude, lng:position.coords.longitude});
+    handler.getMap().setZoom(16);
+    
+    
+  }
+  
+</script>
