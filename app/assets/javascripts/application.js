@@ -14,7 +14,6 @@
 //= require underscore
 //= require gmaps/google
 //= require popper.js/dist/umd/popper
-//= require bootstrap/dist/js/bootstrap
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
