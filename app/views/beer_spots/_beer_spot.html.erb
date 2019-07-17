@@ -1,8 +1,19 @@
-<tr id='<%=@beerspot.id%>'>
-    <td><%= @beerspot.name %></td>
-    
-    <td style ="text-align: center">><%= @beerspot.qualification %></td>
-        
-    <td><%= link_to 'Show', @beerspot %></td>
-    
-</tr>
+<div id="<%=@beerspot.id%>"class="card mb-3" style="max-width: 330px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+          <% if @beerspot.images.attached? %>
+            <% @beerspot.images.each do |image| %>
+              <%= image_tag image.variant(resize:"50x50"), class:"card-img" %>
+            <% end %>
+          <% end %>
+            
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= @beerspot.name %></h5>
+              <p class="card-text"><%= @beerspot.post %></p>
+              <p class="card-text"><small class="text-muted"><%= @beerspot.address %></small></p>
+            </div>
+          </div>
+        </div>
+</div>

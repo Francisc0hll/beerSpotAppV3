@@ -1,4 +1,4 @@
-
+<%# sidebar %>
 <div class="sidebar">
   <h2>Nuevo BeerSpot</h2>
   <%= form_with(model: @beer_spot) do |form| %>
@@ -42,34 +42,44 @@
       </div>
   <% end %>
 <br>
+
+<%# lista de beerspot %>
 <div class="listBS">
-    <table class="table">
-    <h2>BeerSpots</h1>
-    <thead>
-    <tr>
-    <th>Nombre</th>
+    <%# probando la lista con card %>
+    <div id="beerspotsall">
+      <% @beerspots.each do |beerspot| %>
+    
+        <div id="<%=beerspot.id%>"class="card mb-3" style="max-width: 330px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+            <% if beerspot.images.attached? %>
+              <% beerspot.images.each do |image| %>
+                <%= image_tag image.variant(resize:"50x50"), class:"card-img" %>
+              <% end %>
+            <% end %>
+              
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= beerspot.name %></h5>
+                <p class="card-text"><%= beerspot.post %></p>
+                <p class="card-text"><small class="text-muted"><%= beerspot.address %></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  
+  </div>  
 
-    <th>Calificacion</th>
 
-    <th colspan="3"></th>
-    </tr>
-    </thead>
 
-    <tbody id='beerspotsall'>
-    <% @beerspots.each do |beerspot| %>
-    <tr id="<%=beerspot.id%>">
-    <td><%= beerspot.name %></td>
 
-    <td style ="text-align: center"><%= beerspot.qualification %></td>
 
-    <td><%= link_to 'Info', beerspot %></td>
-
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
+    <%# cerrar la prueba  %>
+    
+<%# termina lists de beerspot %>
 
 </div> 
 <%# termina div sidebar %>
