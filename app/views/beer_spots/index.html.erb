@@ -49,7 +49,7 @@
     <div id="beerspotsall">
       <% @beerspots.each do |beerspot| %>
     
-        <div id="<%=beerspot.id%>"class="card mb-3" style="max-width: 330px;">
+        <div id="bs<%=beerspot.id%>"class="card mb-3" data-lat ='<%=beerspot.latitude%>' data-long='<%=beerspot.longitude%>'style="max-width: 330px;">
           <div class="row no-gutters">
             <div class="col-md-4">
             <% if beerspot.images.attached? %>
@@ -64,6 +64,8 @@
                 <h5 class="card-title"><%= beerspot.name %></h5>
                 <p class="card-text"><%= beerspot.post %></p>
                 <p class="card-text"><small class="text-muted"><%= beerspot.address %></small></p>
+                <input id ="bslat"type="hidden" value="<%=beerspot.latitude%>">
+                <input id= "bslng"type="hidden" value="<%=beerspot.longitude%>">
                 <%= link_to 'Info', beerspot , class:"btn btn-primary"%>
               </div>
             </div>
@@ -97,6 +99,22 @@
   $('.menu-bar').on('click', function () {
     $('.contenido').toggleClass('abrir');
   });
+
+  $('.card').on('click', function(){
+    
+    var bslat = parseFloat($(this).data('lat'));
+    var bslng = parseFloat($(this).data('long'));
+    navigator.geolocation.getCurrentPosition(setPosition); 
+    
+    function setPosition(position) {
+      
+      handler.getMap().setCenter({lat:bslat, lng:bslng});
+      handler.getMap().setZoom(16);
+    
+    }
+
+
+  })
 
 
   handler = Gmaps.build('Google');

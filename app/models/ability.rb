@@ -10,6 +10,7 @@ class Ability
       if user.admin?
         can :manage, :all
       else
+        can :manage , BeerSpot, user_id: user.id
         can [:read, :create],[BeerSpot, Comment] 
         
       end

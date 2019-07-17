@@ -18,7 +18,9 @@ height:100%;
 
 }
 
-
+.card:hover{
+    cursor: pointer;
+}
 
 
 
@@ -54,7 +56,7 @@ body{
 
 .contenido {
     width: 100%;
-    height: 84%;
+    height: 85%;
     position: absolute;
     background: #eee;
     padding: 0;

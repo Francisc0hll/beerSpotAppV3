@@ -29,7 +29,7 @@ class BeerSpotsController < ApplicationController
     
     @beerspot = BeerSpot.new(beer_spot_params)
     @beerspot.user_id = current_user.id
-
+    
     respond_to do |format|
       if @beerspot.save
         format.html { redirect_to @beerspot, notice: 'beerspot was successfully created.' }
