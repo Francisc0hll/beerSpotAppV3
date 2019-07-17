@@ -1,7 +1,7 @@
 class BeerSpotsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
-    @beerspots=BeerSpot.all
+    @beerspots=BeerSpot.all.order("created_at DESC")
     @beer_spot = BeerSpot.new
     @hash=Gmaps4rails.build_markers(@beerspots) do|beerspot, marker|  
       marker.lat  beerspot.latitude  

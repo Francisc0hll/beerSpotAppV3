@@ -21,6 +21,7 @@ BeerSpot.destroy_all
 end
 
 
+
 addresses = addresses.split("\n")
 addresses.each do|address|
     BeerSpot.create!(
