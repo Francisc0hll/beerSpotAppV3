@@ -38,7 +38,7 @@ class BeerSpotsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @beerspot.errors, status: :unprocessable_entity }
-        format.js{}
+        format.js{ render :error}
       end
     end
 
