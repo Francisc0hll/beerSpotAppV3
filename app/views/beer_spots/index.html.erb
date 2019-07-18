@@ -64,8 +64,6 @@
                 <h5 class="card-title"><%= beerspot.name %></h5>
                 <p class="card-text"><%= beerspot.post %></p>
                 <p class="card-text"><small class="text-muted"><%= beerspot.address %></small></p>
-                <input id ="bslat"type="hidden" value="<%=beerspot.latitude%>">
-                <input id= "bslng"type="hidden" value="<%=beerspot.longitude%>">
                 <%= link_to 'Info', beerspot , class:"btn btn-primary"%>
               </div>
             </div>
@@ -123,17 +121,19 @@
         internal: { id: 'map', disableDefaultUI :true}
   }, function () {    
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  
   handler.bounds.extendWith(markers);
   
   }) 
   navigator.geolocation.getCurrentPosition(setPosition); 
-  var image = '/markerbs.png'
-  function setPosition(position) {
   
+  function setPosition(position) {
+    
     handler.getMap().setCenter({lat:position.coords.latitude, lng:position.coords.longitude});
     handler.getMap().setZoom(16);
-    
-    
   }
+
+    
+  
   
 </script>
