@@ -54,7 +54,7 @@
             <div class="col-md-4">
             <% if beerspot.images.attached? %>
               <% beerspot.images.each do |image| %>
-                <%= image_tag image.variant(resize:"50x50"), class:"card-img" %>
+                <%= image_tag image.variant(resize:"300x300"), class:"card-img" %>
               <% end %>
             <% end %>
               
