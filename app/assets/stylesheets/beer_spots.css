@@ -27,7 +27,7 @@ height:100%;
 
 body{
     
-    overflow: hidden;
+    overflow: scroll;
 }
 
 
@@ -81,21 +81,10 @@ body{
     transform: translateX(350px);
 }
 
-#footer_area{
-    position: absolute;
-    width: 100%;
-    background: #262626;
-    color: white;
-    bottom: 0;
-    text-align: center;
-}
 .container h3{
     font-size: 10px;
 }
 
-.footer-social{
-    margin-top: 10px;;
-}
 
 .containerShow{
     margin: 1rem;
@@ -105,4 +94,14 @@ body{
 .containerDevise{
     margin: 1rem;
     padding: 3rem;
+}
+
+#sticky-footer {
+  position: relative;  
+  flex-shrink: none;
+}
+
+
+#page-content {
+  flex: 1 0 auto;
 }
