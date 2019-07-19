@@ -39,7 +39,7 @@
       </div>
       <br>
       <div class="actions">
-      <%= form.submit %>
+      <%= form.submit :CrearBS  ,class:"btn btn-outline-warning" %>
       </div>
   <% end %>
 <br>
@@ -65,7 +65,7 @@
                 <h5 class="card-title"><%= beerspot.name %></h5>
                 <p class="card-text"><%= beerspot.post %></p>
                 <p class="card-text"><small class="text-muted"><%= beerspot.address %></small></p>
-                <%= link_to 'Info', beerspot , class:"btn btn-primary"%>
+                <%= link_to 'Info', beerspot ,class:"btn btn-outline-warning"%>
               </div>
             </div>
           </div>

@@ -34,3 +34,6 @@
      form{opacity: 1;}
      to{opacity: 0;}
  }
+ .bg-bs-black{
+     background-color: #363636 !important;
+ }
