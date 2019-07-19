@@ -2,7 +2,7 @@ $(document).on("ready turbolinks:load", function () {
    
     document.body.addEventListener('ajax:error', function (event) {
         var detail = event.detail;
-        alert('Sign In pleace!')
+        alert('Debes registrarte antes de seguir!')
         
         
     })
