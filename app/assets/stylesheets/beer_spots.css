@@ -128,4 +128,13 @@ footer {
   height: 40px;
   color: white;
 }
+.card-img-s {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.actions{
+    text-align: center;
+}
 

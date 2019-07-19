@@ -16,7 +16,7 @@ $(document).on("ready turbolinks:load", function () {
         $(this).html('<i class="fa fa-spinner fa-spin"> </i>')
 
         if (navigator.geolocation) {
-            console.log('prueba')
+            console.log('peticion de direccion')
             navigator.geolocation.getCurrentPosition(getAddress);
         } else {
             $('body').append("Geolocation is not supported by this browser.");
