@@ -7,6 +7,13 @@ background-color: #363636 ;
 
 }
 
+.card h3,h5{
+     font-family: 'Delius Swash Caps', cursive;
+}
+.card-text{
+     font-family: 'Delius Swash Caps', cursive;
+}
+
 
 .listBS{
     overflow:scroll;
@@ -24,8 +31,12 @@ background-color: #363636 ;
 }
 .card{
     color: #363636;
+    
 }
 
+.card-body{
+    background-color:#ffc107;
+}
 
 
 
@@ -38,7 +49,7 @@ body{
 .sidebar{
     position: absolute;
     width: 350px;
-    height: 83%;
+    height: 90%;
     background: #333;
     color: white;
     outline: 1px solid;
