@@ -1,75 +1,64 @@
 <div class="containerShow">
-      <div class="form-group">
-      <p>
-      <strong>Nombre:</strong>
-      <%= @beerspot.name %>
-    </p>
-
-    <p>
-      <strong>Dirección:</strong>
-      <%= @beerspot.address %>
-    </p>
-    <br>
-
-    <p>
-      <%= @beerspot.latitude %>
-      <%= @beerspot.longitude %>
-    </p>
-    
-   <% if @beerspot.images.attached? %>
-    <p>
-      <strong>Image:</strong>
-      <% @beerspot.images.each do |image| %>
-      <%= image_tag image.variant(resize:"250x250") %>
-      <% end %>
-      
-    </p>
-
-  <% end %>
-  <br>
-    <p>
-      <strong>Post:</strong>
-      <%= @beerspot.post %>
-    </p>
-
+  <div class="card mb-3" style="max-width: 100%; height: 260px;">
+    <div class="row no-gutters" style="height:260px;">
+      <div class="col-md-4">
+        <img src="" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="height: 260px;">
+          <h3 class="card-title"><%= @beerspot.name %></h3>
+          <p class="card-text"><%= @beerspot.post %></p>
+          <p class="card-text"><small class="text-muted"><%= @beerspot.address %></small></p>
+          <h5 class="card-title">Calificacion</h5>
+          <p class="card-text"><small class="text-muted"><%= @beerspot.qualification %></small></p>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <% if @beerspot.images.attached? %>
+        <p>
+          <strong>Image:</strong>
+          <% @beerspot.images.each do |image| %>
+          <%= image_tag image.variant(resize:"250x250") %>
+          <% end %>
+          
+        </p>
+      <% end %>
+  
+
+
+  <div class="comentariosBS">
     <h2>Nuevo Comentario</h2>
         <%= form_with(model: [@beerspot, @comment]) do |form| %>
           <div class="from-group">
-            <div class="field">
-                <%= form.text_area :content, placeholder: 'Deje su comentario..', id:"text", class:"form-control" %>
-            </div>
-          
+              <div class="field">
+                  <%= form.text_area :content, placeholder: 'Deje su comentario..', id:"text", class:"form-control" %>
+              </div>
           </div>
           <br>
           <div class="actions">
-            <%= form.submit %>
+            <%= form.submit :enviar ,class:"btn btn-outline-warning"%>
           </div>
-    <% end %>
-    <p>
-      <strong>Calificacion:</strong>
-      <%= @beerspot.qualification %>
-    </p>
-     <h2>Comentarios</h2>
-    <div class="row">
-     
-      <div id = 'listBS'class="col">
+        <% end %>
         
-          <ul >
-          <% @comments.each do |comment| %>
-           
-            <div id="newComment">
+  <h2>Comentarios</h2>
+  <div class="row">
+    <div id = 'listBS'class="col">
+      <ul >
+        <% @comments.each do |comment| %>
+          <div id="newComment">
             <li ><%= comment.content %></li> 
-            </div> 
-             
-          <% end %>
-          
-          </ul>
+          </div> 
+        <% end %>
+      </ul>
       
-      </div>
     </div>
+  </div>
 
+  
+  </div>  
+  
 
     <%= link_to 'Back', root_path %>
 </div>

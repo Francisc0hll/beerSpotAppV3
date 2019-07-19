@@ -2,8 +2,9 @@ $(document).on("ready turbolinks:load", function () {
    
     document.body.addEventListener('ajax:error', function (event) {
         var detail = event.detail;
-        console.log('prueba')
-        var data = detail[0], status = detail[1], xhr = detail[2];
+        alert('Sign In pleace!')
+        
+        
     })
 
 

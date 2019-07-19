@@ -21,3 +21,11 @@
 //= require turbolinks
 //= require_tree .
 
+document.addEventListener('turbolinks:request-start', function(){
+    document.querySelector('.main').classList.add('fadeout');
+})
+
+document.addEventListener('turbolinks:render', function () {
+    document.querySelector('.main').classList.add('fadein');
+})
+
