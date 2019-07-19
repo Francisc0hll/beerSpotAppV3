@@ -13,8 +13,11 @@
 //= require jquery/dist/jquery
 //= require underscore
 //= require gmaps/google
+//= require chartkick
+//= require Chart.bundle
 //= require popper.js/dist/umd/popper
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
